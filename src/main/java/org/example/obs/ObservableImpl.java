@@ -22,7 +22,7 @@ public class ObservableImpl implements Observable{
     public void notifyObservers() {
 
         for (Observer observer : observers) {
-            observer.update(state);
+            observer.update( this);
         }
     }
 

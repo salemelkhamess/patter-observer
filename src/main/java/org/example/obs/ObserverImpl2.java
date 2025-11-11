@@ -7,17 +7,20 @@ public class ObserverImpl2 implements  Observer {
 
     List<Integer> history = new ArrayList<>();
     @Override
-    public void update(int newState) {
-        history.add(newState);
-        double sum =0;
-        for (int i = 0; i < history.size(); i++) {
-            sum += history.get(i) ;
+    public void update(Observable observable) {
+        if (observable instanceof ObservableImpl obs){
+            history.add(obs.getState());
+            double sum =0;
+            for (int i = 0; i < history.size(); i++) {
+                sum += history.get(i) ;
+            }
+            System.out.println("==============  Obs Impl 2  ============");
+
+            System.out.println("Moyenne = " +sum/history.size());
+
+            System.out.println("==============  Obs Impl 2  ============");
+
         }
-        System.out.println("==============  Obs Impl 2  ============");
+        }
 
-        System.out.println("Moyenne = " +sum/history.size());
-
-        System.out.println("==============  Obs Impl 2  ============");
-
-    }
 }
